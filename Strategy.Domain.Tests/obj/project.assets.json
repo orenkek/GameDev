@@ -193,11 +193,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sabir\\Desktop\\ООПиС\\Strategy\\Strategy.Domain.Tests\\Strategy.Domain.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\sabir\\Desktop\\Education\\ООПиС\\GameDev\\Strategy.Domain.Tests\\Strategy.Domain.Tests.csproj",
       "projectName": "Strategy.Domain.Tests",
-      "projectPath": "C:\\Users\\sabir\\Desktop\\ООПиС\\Strategy\\Strategy.Domain.Tests\\Strategy.Domain.Tests.csproj",
+      "projectPath": "C:\\Users\\sabir\\Desktop\\Education\\ООПиС\\GameDev\\Strategy.Domain.Tests\\Strategy.Domain.Tests.csproj",
       "packagesPath": "C:\\Users\\sabir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sabir\\Desktop\\ООПиС\\Strategy\\Strategy.Domain.Tests\\obj\\",
+      "outputPath": "C:\\Users\\sabir\\Desktop\\Education\\ООПиС\\GameDev\\Strategy.Domain.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -214,8 +214,8 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\sabir\\Desktop\\ООПиС\\Strategy\\Strategy.Domain\\Strategy.Domain.csproj": {
-              "projectPath": "C:\\Users\\sabir\\Desktop\\ООПиС\\Strategy\\Strategy.Domain\\Strategy.Domain.csproj"
+            "C:\\Users\\sabir\\Desktop\\Education\\ООПиС\\GameDev\\Strategy.Domain\\Strategy.Domain.csproj": {
+              "projectPath": "C:\\Users\\sabir\\Desktop\\Education\\ООПиС\\GameDev\\Strategy.Domain\\Strategy.Domain.csproj"
             }
           }
         }

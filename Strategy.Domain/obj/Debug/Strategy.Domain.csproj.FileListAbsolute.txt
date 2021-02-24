@@ -15,3 +15,9 @@ C:\Users\sabir\Desktop\ООПиС\Strategy\Strategy.Domain\obj\Debug\Strategy.Do
 C:\Users\sabir\Desktop\ООПиС\Strategy\Strategy.Domain\obj\Debug\Strategy.Domain.csproj.CoreCompileInputs.cache
 C:\Users\sabir\Desktop\ООПиС\Strategy\Strategy.Domain\obj\Debug\Strategy.Domain.dll
 C:\Users\sabir\Desktop\ООПиС\Strategy\Strategy.Domain\obj\Debug\Strategy.Domain.pdb
+C:\Users\sabir\Desktop\Education\ООПиС\GameDev\Strategy.Domain\bin\Debug\Strategy.Domain.dll
+C:\Users\sabir\Desktop\Education\ООПиС\GameDev\Strategy.Domain\bin\Debug\Strategy.Domain.pdb
+C:\Users\sabir\Desktop\Education\ООПиС\GameDev\Strategy.Domain\obj\Debug\Strategy.Domain.csprojAssemblyReference.cache
+C:\Users\sabir\Desktop\Education\ООПиС\GameDev\Strategy.Domain\obj\Debug\Strategy.Domain.csproj.CoreCompileInputs.cache
+C:\Users\sabir\Desktop\Education\ООПиС\GameDev\Strategy.Domain\obj\Debug\Strategy.Domain.dll
+C:\Users\sabir\Desktop\Education\ООПиС\GameDev\Strategy.Domain\obj\Debug\Strategy.Domain.pdb
