@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Strategy.Domain.Models.Base
 {
-    class Landscape
+    public class Landscape
     {
+        public Landscape()
+        {
+
+        }
+        public int X { get; set; }
+        public int Y { get; set; }
     }
 }

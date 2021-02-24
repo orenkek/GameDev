@@ -1,23 +1,16 @@
-﻿namespace Strategy.Domain.Models
+﻿using Strategy.Domain.Models.Base;
+
+namespace Strategy.Domain.Models
 {
     /// <summary>
     /// Непроходимая наземная поверхность.
     /// </summary>
-    public sealed class Water
+    public sealed class Water : Landscape
     {
         /// <inheritdoc />
-        public Water()
+        public Water() : base()
         {
+
         }
-
-        /// <summary>
-        /// Координата x воды на карте.
-        /// </summary>
-        public int X { get; set; }
-
-        /// <summary>
-        /// Координата y воды на карте.
-        /// </summary>
-        public int Y { get; set; }
     }
 }
