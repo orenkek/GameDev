@@ -12,8 +12,12 @@ namespace Strategy.Domain.Models
         {
             Player = player;
         }
+
         public int Y { get; set; }
+
         public int X { get; set; }
+
         public Player Player { get; }
+
     }
 }

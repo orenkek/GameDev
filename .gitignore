@@ -1,2 +1,2 @@
-Strategy.Domain.Tests/*
-.vs/*
+/Strategy.Domain.Tests/*
+/.vs/Strategy/*
