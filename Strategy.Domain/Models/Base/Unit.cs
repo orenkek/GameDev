@@ -18,6 +18,5 @@ namespace Strategy.Domain.Models
         public int X { get; set; }
 
         public Player Player { get; }
-
     }
 }

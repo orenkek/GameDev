@@ -37,18 +37,6 @@ namespace Strategy.Domain
         /// <param name="o">Координаты объекта, которые необходимо получить.</param>
         /// <returns>Координата x, координата y.</returns>
 
-        //public Coordinates GetObjectCoordinates(Archer a) => new Coordinates(a.X, a.Y);
-
-        //public Coordinates GetObjectCoordinates(Catapult c) => new Coordinates(c.X, c.Y);
-
-        //public Coordinates GetObjectCoordinates(Horseman h) => new Coordinates(h.X, h.Y);
-
-        //public Coordinates GetObjectCoordinates(Swordsman s) => new Coordinates(s.X, s.Y);
-
-        //public Coordinates GetObjectCoordinates(Grass g) => new Coordinates(g.X, g.Y);
-
-        //public Coordinates GetObjectCoordinates(Water w) => new Coordinates(w.X, w.Y);
-
         public Coordinates GetObjectCoordinates(object o)
 
         {
