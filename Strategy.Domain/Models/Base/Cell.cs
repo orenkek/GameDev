@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Strategy.Domain.Models.Base
 {
-    public class Landscape
+    public class Cell
     {
-        public Landscape()
+        public Cell()
         {
 
         }
         public int X { get; set; }
         public int Y { get; set; }
 
-        public Coordinates GetLandscapeCoordinates() => new Coordinates(X, Y);
+        public Coordinates GetCoordinates() => new Coordinates(X, Y);
     }
 }

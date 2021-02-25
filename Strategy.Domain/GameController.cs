@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Strategy.Domain.Models;
+using Strategy.Domain.Models.Base;
 
 namespace Strategy.Domain
 {
@@ -37,40 +38,9 @@ namespace Strategy.Domain
         /// <param name="o">Координаты объекта, которые необходимо получить.</param>
         /// <returns>Координата x, координата y.</returns>
 
-        public Coordinates GetObjectCoordinates(object o)
-
+        public Coordinates GetObjectCoordinates(Cell c)
         {
-            if (o is Archer a)
-            {
-                return a.GetUnitCoordinates();
-            }
-
-            if (o is Catapult c)
-            {
-                return c.GetUnitCoordinates();
-            }
-
-            if (o is Horseman h)
-            {
-                return h.GetUnitCoordinates();
-            }
-
-            if (o is Swordsman s)
-            {
-                return s.GetUnitCoordinates();
-            }
-
-            if (o is Grass g)
-            {
-                return g.GetLandscapeCoordinates();
-            }
-
-            if (o is Water w)
-            {
-                return w.GetLandscapeCoordinates();
-            }
-
-            throw new ArgumentException("Неизвестный тип");
+            try { return c.GetCoordinates(); } catch { throw new ArgumentException("Неизвестный тип"); }
         }
 
         /// <summary>
@@ -83,70 +53,6 @@ namespace Strategy.Domain
         /// <see langvalue="true" />, если юнит может переместиться
         /// <see langvalue="false" /> - иначе.
         /// </returns>
-        
-        //public bool CanMoveUnit(Archer a, int x, int y)
-        //{
-        //    if (Math.Abs(a.X - x) >  a.MaxSteps|| Math.Abs(a.Y - y) > a.MaxSteps)
-        //        return false;
-            
-        //    foreach (object g in _map.Ground)
-        //    {
-        //        if (g is Water w && w.X == x && w.Y == y)
-        //        {
-        //            return false;
-        //        }
-        //    }
-
-        //    return true;
-        //}
-
-        //public bool CanMoveUnit(Catapult a, int x, int y)
-        //{
-        //    if (Math.Abs(a.X - x) > a.MaxSteps || Math.Abs(a.Y - y) > a.MaxSteps)
-        //        return false;
-
-        //    foreach (object g in _map.Ground)
-        //    {
-        //        if (g is Water w && w.X == x && w.Y == y)
-        //        {
-        //            return false;
-        //        }
-        //    }
-
-        //    return true;
-        //}
-
-        //public bool Horseman(Archer a, int x, int y)
-        //{
-        //    if (Math.Abs(a.X - x) > a.MaxSteps || Math.Abs(a.Y - y) > a.MaxSteps)
-        //        return false;
-            
-        //    foreach (object g in _map.Ground)
-        //    {
-        //        if (g is Water w && w.X == x && w.Y == y)
-        //        {
-        //            return false;
-        //        }
-        //    }
-
-        //    return true;
-        //}
-
-        //public bool CanMoveUnit(Swordsman a, int x, int y)
-        //{
-        //    if (Math.Abs(a.X - x) > a.MaxSteps || Math.Abs(a.Y - y) > a.MaxSteps)
-        //        return false;
-
-        //    foreach (object g in _map.Ground)
-        //    {
-        //        if (g is Water w && w.X == x && w.Y == y)
-        //        {
-        //            return false;
-        //        }
-        //    }
-
-        //    return true;
-        //}
 
         public bool CanMoveUnit(Unit u, int x, int y)
         {
@@ -223,9 +129,9 @@ namespace Strategy.Domain
         /// <see langvalue="true" />, если атака возможна
         /// <see langvalue="false" /> - иначе.
         /// </returns>
-        public bool CanAttackUnit(object au, object tu)
+        public bool CanAttackUnit(Object au, Object tu)
         {
-            var cr = GetObjectCoordinates(tu);
+            var cr = GetObjectCoordinates((Cell)tu);
             Player ptu;
             if (tu is Archer a)
             {
@@ -303,14 +209,14 @@ namespace Strategy.Domain
         /// </summary>
         /// <param name="au">Юнит, который собирается совершить атаку.</param>
         /// <param name="tu">Юнит, который является целью.</param>
-        public void AttackUnit(object au, object tu)
+        public void AttackUnit(Object au, Object tu)
         {
-            if (!CanAttackUnit(au, tu))
+            if (!CanAttackUnit((Unit)au, (Unit)tu))
                 return;
 
             InitializeUnitHp(tu);
             var thp = _hp[tu];
-            var cr = GetObjectCoordinates(tu);
+            var cr = GetObjectCoordinates((Cell)tu);
             int d = 0;
 
             if (au is Archer a)

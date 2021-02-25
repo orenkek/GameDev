@@ -5,7 +5,7 @@ namespace Strategy.Domain.Models
     /// <summary>
     /// Непроходимая наземная поверхность.
     /// </summary>
-    public sealed class Water : Landscape
+    public sealed class Water : Cell
     {
         /// <inheritdoc />
         public Water() : base()

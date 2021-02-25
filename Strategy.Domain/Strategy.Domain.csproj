@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="GameController.cs" />
     <Compile Include="Models\Archer.cs" />
-    <Compile Include="Models\Base\Landscape.cs" />
+    <Compile Include="Models\Base\Cell.cs" />
     <Compile Include="Models\Catapult.cs" />
     <Compile Include="Models\Grass.cs" />
     <Compile Include="Models\Horseman.cs" />
