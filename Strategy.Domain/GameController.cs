@@ -263,50 +263,6 @@ namespace Strategy.Domain
                 return ((Unit)o).Image;
                 }
 
-
-            //if (o is Archer)
-            //{
-            //    if (IsDead(o))
-            //        return _deadUnitSource;
-
-            //    return _archerSource;
-            //}
-
-            //if (o is Catapult)
-            //{
-            //    if (IsDead(o))
-            //        return _deadUnitSource;
-
-            //    return _catapultSource;
-            //}
-
-            //if (o is Horseman)
-            //{
-            //    if (IsDead(o))
-            //        return _deadUnitSource;
-
-            //    return _horsemanSource;
-            //}
-
-            //if (o is Swordsman)
-            //{
-            //    if (IsDead(o))
-            //        return _deadUnitSource;
-
-            //    return _swordsmanSource;
-            //}
-
-            //if (o is Grass)
-            //{
-            //    return _grassSource;
-            //}
-
-            //if (o is Water)
-            //{
-            //    return _waterSource;
-            //}
-
-
         }
 
         /// <summary>
