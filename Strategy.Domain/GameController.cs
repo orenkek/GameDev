@@ -46,7 +46,7 @@ namespace Strategy.Domain
         /// <summary>
         /// Может ли юнит передвинуться в указанную клетку.
         /// </summary>
-        /// <param name="u">Юнит.</param>
+        /// <param name="unit">Юнит.</param>
         /// <param name="x">Координата X клетки.</param>
         /// <param name="y">Координата Y клетки.</param>
         /// <returns>
@@ -54,11 +54,11 @@ namespace Strategy.Domain
         /// <see langvalue="false" /> - иначе.
         /// </returns>
 
-        public bool CanMoveUnit(Unit u, int x, int y)
+        public bool CanMoveUnit(Unit unit, int x, int y)
         {
-            if (Math.Abs(u.X - x) > u.MaxSteps || Math.Abs(u.Y - y) > u.MaxSteps)
+            if (Math.Abs(unit.X - x) > unit.MaxSteps || Math.Abs(unit.Y - y) > unit.MaxSteps)
                 return false;
-            else if (!(u is Unit))
+            else if (!(unit is Unit))
                 throw new ArgumentException("Неизвестный тип");
 
             foreach (object g in _map.Ground)
@@ -123,39 +123,39 @@ namespace Strategy.Domain
         /// <summary>
         /// Проверить, может ли один юнит атаковать другого.
         /// </summary>
-        /// <param name="au">Юнит, который собирается совершить атаку.</param>
-        /// <param name="tu">Юнит, который является целью.</param>
+        /// <param name="attackUnit">Юнит, который собирается совершить атаку.</param>
+        /// <param name="defenseUnit">Юнит, который является целью.</param>
         /// <returns>
         /// <see langvalue="true" />, если атака возможна
         /// <see langvalue="false" /> - иначе.
         /// </returns>
-        public bool CanAttackUnit(Object au, Object tu)
+        public bool CanAttackUnit(Object attackUnit, Object defenseUnit)
         {
-            var cr = GetObjectCoordinates((Cell)tu);
+            var cr = GetObjectCoordinates((Cell)defenseUnit);
             Player ptu;
-            if (tu is Archer a)
+            if (defenseUnit is Archer a)
             {
                 ptu = a.Player;
             }
-            else if (tu is Catapult c)
+            else if (defenseUnit is Catapult c)
             {
                 ptu = c.Player;
             }
-            else if (tu is Horseman h)
+            else if (defenseUnit is Horseman h)
             {
                 ptu = h.Player;
             }
-            else if (tu is Swordsman s)
+            else if (defenseUnit is Swordsman s)
             {
                 ptu = s.Player;
             }
             else
                 throw new ArgumentException("Неизвестный тип");
 
-            if (IsDead(tu))
+            if (IsDead(defenseUnit))
                 return false;
 
-            if (au is Archer a1)
+            if (attackUnit is Archer a1)
             {
                 if (a1.Player == ptu)
                     return false;
@@ -166,7 +166,7 @@ namespace Strategy.Domain
                 return dx >= -5 && dx <= 5 && dy >= -5 && dy <= 5;
             }
 
-            if (au is Catapult c1)
+            if (attackUnit is Catapult c1)
             {
                 if (c1.Player == ptu)
                     return false;
@@ -177,7 +177,7 @@ namespace Strategy.Domain
                 return dx >= -10 && dx <= 10 && dy >= -10 && dy <= 10;
             }
 
-            if (au is Horseman h1)
+            if (attackUnit is Horseman h1)
             {
                 if (h1.Player == ptu)
                     return false;
@@ -189,7 +189,7 @@ namespace Strategy.Domain
                        (dy == -1 || dy == 0 || dy == 1);
             }
 
-            if (au is Swordsman s1)
+            if (attackUnit is Swordsman s1)
             {
                 if (s1.Player == ptu)
                     return false;
@@ -207,19 +207,19 @@ namespace Strategy.Domain
         /// <summary>
         /// Атаковать указанного юнита.
         /// </summary>
-        /// <param name="au">Юнит, который собирается совершить атаку.</param>
-        /// <param name="tu">Юнит, который является целью.</param>
-        public void AttackUnit(Object au, Object tu)
+        /// <param name="attackUnit">Юнит, который собирается совершить атаку.</param>
+        /// <param name="defenseUnit">Юнит, который является целью.</param>
+        public void AttackUnit(Object attackUnit, Object defenseUnit)
         {
-            if (!CanAttackUnit((Unit)au, (Unit)tu))
+            if (!CanAttackUnit((Unit)attackUnit, (Unit)defenseUnit))
                 return;
 
-            InitializeUnitHp(tu);
-            var thp = _hp[tu];
-            var cr = GetObjectCoordinates((Cell)tu);
+            InitializeUnitHp(defenseUnit);
+            var thp = _hp[defenseUnit];
+            var cr = GetObjectCoordinates((Cell)defenseUnit);
             int d = 0;
 
-            if (au is Archer a)
+            if (attackUnit is Archer a)
             {
                 d = 50;
 
@@ -232,7 +232,7 @@ namespace Strategy.Domain
                     d /= 2;
                 }
             }
-            else if (au is Catapult c)
+            else if (attackUnit is Catapult c)
             {
                 d = 100;
 
@@ -245,18 +245,18 @@ namespace Strategy.Domain
                     d /= 2;
                 }
             }
-            else if (au is Horseman)
+            else if (attackUnit is Horseman)
             {
                 d = 75;
             }
-            else if (au is Swordsman)
+            else if (attackUnit is Swordsman)
             {
                 d = 50;
             }
             else
                 throw new ArgumentException("Неизвестный тип");
 
-            _hp[tu] = Math.Max(thp - d, 0);
+            _hp[defenseUnit] = Math.Max(thp - d, 0);
         }
 
         /// <summary>
