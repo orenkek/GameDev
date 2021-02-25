@@ -10,7 +10,7 @@
         public Catapult(Player player) : base(player)
         {
             _hp = DataSet.InitializeCatapultHP();
-            Player.Portrait = DataSet.InitializeCatapultImage();
+            Image = DataSet.InitializeCatapultImage();
         }
 
         public override int MaxSteps { get => MAX_STEPS; }

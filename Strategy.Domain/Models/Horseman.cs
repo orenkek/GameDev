@@ -10,7 +10,7 @@
         public Horseman(Player player) : base(player)
         {
             _hp = DataSet.InitializeHorsemanHP();
-            Player.Portrait = DataSet.InitializeHorsemanImage();
+            Image = DataSet.InitializeHorsemanImage();
         }
 
         public override int MaxSteps { get => MAX_STEPS; }

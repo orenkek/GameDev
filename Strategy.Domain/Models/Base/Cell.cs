@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Strategy.Domain.Models.Base
 {
@@ -16,5 +17,6 @@ namespace Strategy.Domain.Models.Base
         public int Y { get; set; }
 
         public Coordinates GetCoordinates() => new Coordinates(X, Y);
+        public virtual ImageSource Image { get; set; }
     }
 }

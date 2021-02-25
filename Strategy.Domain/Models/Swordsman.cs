@@ -9,7 +9,7 @@
         public Swordsman(Player player) : base(player)
         {
             _hp = DataSet.InitializeSwordsmanHP();
-            Player.Portrait = DataSet.InitializeSwordsmanImage();
+            Image = DataSet.InitializeSwordsmanImage();
         }
 
         public override int MaxSteps { get => MAX_STEPS; }

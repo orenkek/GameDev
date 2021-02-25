@@ -24,8 +24,7 @@ namespace Strategy.Domain
         public static ImageSource InitializeSwordsmanImage() => new BitmapImage(new Uri("Resources/Units/Swordsman.png", UriKind.Relative));
         public static ImageSource InitializeDeadUnitImage() => new BitmapImage(new Uri("Resources/Units/Dead.png", UriKind.Relative));
         public static ImageSource InitializeGrassImage() => new BitmapImage(new Uri("Resources/Units/Grass.png", UriKind.Relative));
-        public static ImageSource InitializeArcherWater() => new BitmapImage(new Uri("Resources/Units/Water.png", UriKind.Relative));
-
+        public static ImageSource InitializeWaterImage() => new BitmapImage(new Uri("Resources/Units/Water.png", UriKind.Relative));
         #endregion
     }
 }

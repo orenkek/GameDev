@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Strategy.Domain.Models
 {
@@ -10,8 +11,11 @@ namespace Strategy.Domain.Models
     {
         public Dead(Player player) : base(player)
         {
-            Player.Portrait = DataSet.InitializeDeadUnitImage();
+            Image = DataSet.InitializeDeadUnitImage();
         }
-        public Player Player { get; }
+        //public Player Player { get; }
+
+        new public static ImageSource Image { get; set; }
+        
     }
 }

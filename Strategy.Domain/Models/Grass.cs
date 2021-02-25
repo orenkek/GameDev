@@ -10,7 +10,7 @@ namespace Strategy.Domain.Models
         /// <inheritdoc />
         public Grass() : base()
         {
-
+            Image = DataSet.InitializeGrassImage();
         }
     }
 }

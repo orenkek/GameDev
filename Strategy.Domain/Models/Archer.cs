@@ -12,7 +12,7 @@ namespace Strategy.Domain.Models
         public Archer(Player player) : base(player)
         {
             _hp = DataSet.InitializeArcherHP();
-            Player.Portrait = DataSet.InitializeArcherImage();
+            Image = DataSet.InitializeArcherImage();
         }
 
 

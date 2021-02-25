@@ -17,13 +17,13 @@ namespace Strategy.Domain
         // Очки жизни каждого юнита.
         private readonly Dictionary<object, int> _hp = new Dictionary<object, int>();
 
-        private readonly ImageSource _archerSource = BuildSourceFromPath("Resources/Units/Archer.png");
-        private readonly ImageSource _catapultSource = BuildSourceFromPath("Resources/Units/Catapult.png");
-        private readonly ImageSource _horsemanSource = BuildSourceFromPath("Resources/Units/Horseman.png");
-        private readonly ImageSource _swordsmanSource = BuildSourceFromPath("Resources/Units/Swordsman.png");
-        private readonly ImageSource _deadUnitSource = BuildSourceFromPath("Resources/Units/Dead.png");
-        private readonly ImageSource _grassSource = BuildSourceFromPath("Resources/Ground/Grass.png");
-        private readonly ImageSource _waterSource = BuildSourceFromPath("Resources/Ground/Water.png");
+        //private readonly ImageSource _archerSource = BuildSourceFromPath("Resources/Units/Archer.png");
+        //private readonly ImageSource _catapultSource = BuildSourceFromPath("Resources/Units/Catapult.png");
+        //private readonly ImageSource _horsemanSource = BuildSourceFromPath("Resources/Units/Horseman.png");
+        //private readonly ImageSource _swordsmanSource = BuildSourceFromPath("Resources/Units/Swordsman.png");
+        //private readonly ImageSource _deadUnitSource = BuildSourceFromPath("Resources/Units/Dead.png");
+        //private readonly ImageSource _grassSource = BuildSourceFromPath("Resources/Ground/Grass.png");
+        //private readonly ImageSource _waterSource = BuildSourceFromPath("Resources/Ground/Water.png");
 
         /// <inheritdoc />
         public GameController(Map map)
@@ -254,49 +254,59 @@ namespace Strategy.Domain
         /// </summary>
         public ImageSource GetObjectSource(object o)
         {
-            if (o is Archer)
-            {
-                if (IsDead(o))
-                    return _deadUnitSource;
+                if (!(o is Unit))
+                    return ((Cell)o).Image;
+                else
+                {
+                    if (IsDead(o))
+                        return Dead.Image;
+                return ((Unit)o).Image;
+                }
 
-                return _archerSource;
-            }
 
-            if (o is Catapult)
-            {
-                if (IsDead(o))
-                    return _deadUnitSource;
+            //if (o is Archer)
+            //{
+            //    if (IsDead(o))
+            //        return _deadUnitSource;
 
-                return _catapultSource;
-            }
+            //    return _archerSource;
+            //}
 
-            if (o is Horseman)
-            {
-                if (IsDead(o))
-                    return _deadUnitSource;
+            //if (o is Catapult)
+            //{
+            //    if (IsDead(o))
+            //        return _deadUnitSource;
 
-                return _horsemanSource;
-            }
+            //    return _catapultSource;
+            //}
 
-            if (o is Swordsman)
-            {
-                if (IsDead(o))
-                    return _deadUnitSource;
+            //if (o is Horseman)
+            //{
+            //    if (IsDead(o))
+            //        return _deadUnitSource;
 
-                return _swordsmanSource;
-            }
+            //    return _horsemanSource;
+            //}
 
-            if (o is Grass)
-            {
-                return _grassSource;
-            }
+            //if (o is Swordsman)
+            //{
+            //    if (IsDead(o))
+            //        return _deadUnitSource;
 
-            if (o is Water)
-            {
-                return _waterSource;
-            }
+            //    return _swordsmanSource;
+            //}
 
-            throw new ArgumentException("Неизвестный тип");
+            //if (o is Grass)
+            //{
+            //    return _grassSource;
+            //}
+
+            //if (o is Water)
+            //{
+            //    return _waterSource;
+            //}
+
+
         }
 
         /// <summary>

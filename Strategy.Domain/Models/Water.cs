@@ -10,7 +10,7 @@ namespace Strategy.Domain.Models
         /// <inheritdoc />
         public Water() : base()
         {
-
+            Image = DataSet.InitializeWaterImage();
         }
     }
 }
