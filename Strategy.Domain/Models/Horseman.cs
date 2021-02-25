@@ -10,5 +10,7 @@
         {
 
         }
+
+        public override int MaxSteps { get => 3; set => MaxSteps = value; }
     }
 }

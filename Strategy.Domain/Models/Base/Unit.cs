@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Strategy.Domain.Models
 {
-    public class Unit
+    abstract public class Unit
     {
         public Unit(Player player)
         {
@@ -18,5 +18,7 @@ namespace Strategy.Domain.Models
         public int X { get; set; }
 
         public Player Player { get; }
+
+        public abstract int MaxSteps { get; set; }
     }
 }
