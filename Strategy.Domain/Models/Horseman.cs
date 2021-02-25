@@ -9,7 +9,7 @@
         /// <inheritdoc />
         public Horseman(Player player) : base(player)
         {
-
+            _hp = DataSet.InitializeHorsemanHP();
         }
 
         public override int MaxSteps { get => MAX_STEPS; }

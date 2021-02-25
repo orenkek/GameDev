@@ -1,4 +1,6 @@
-﻿namespace Strategy.Domain.Models
+﻿using Strategy.Domain;
+
+namespace Strategy.Domain.Models
 {
     /// <summary>
     /// Лучник.
@@ -9,8 +11,9 @@
         /// <inheritdoc />
         public Archer(Player player) : base(player)
         {
-
+            _hp = DataSet.InitializeArcherHP();
         }
+
 
         public override int MaxSteps { get => MAX_STEPS; }
     }

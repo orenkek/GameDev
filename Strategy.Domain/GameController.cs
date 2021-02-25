@@ -133,24 +133,14 @@ namespace Strategy.Domain
         {
             var cr = GetObjectCoordinates((Cell)defenseUnit);
             Player ptu;
-            if (defenseUnit is Archer a)
+            try
             {
-                ptu = a.Player;
+                ptu = (defenseUnit as Unit).Player;
             }
-            else if (defenseUnit is Catapult c)
+            catch
             {
-                ptu = c.Player;
-            }
-            else if (defenseUnit is Horseman h)
-            {
-                ptu = h.Player;
-            }
-            else if (defenseUnit is Swordsman s)
-            {
-                ptu = s.Player;
-            }
-            else
                 throw new ArgumentException("Неизвестный тип");
+            }
 
             if (IsDead(defenseUnit))
                 return false;
@@ -321,6 +311,7 @@ namespace Strategy.Domain
         {
             if (_hp.TryGetValue(u, out var hp))
                 return hp == 0;
+
 
             InitializeUnitHp(u);
             return false;

@@ -9,7 +9,7 @@
         const int MAX_STEPS = 1;
         public Catapult(Player player) : base(player)
         {
-
+            _hp = DataSet.InitializeCatapultHP();
         }
 
         public override int MaxSteps { get => MAX_STEPS; }
