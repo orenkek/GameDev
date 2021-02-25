@@ -29,6 +29,7 @@ namespace Strategy.Domain.Models
         /// <summary>
         /// Портрет игрока.
         /// </summary>
+        
         public ImageSource Portrait { get; set; }
     }
 }

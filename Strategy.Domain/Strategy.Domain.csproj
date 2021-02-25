@@ -52,6 +52,7 @@
     <Compile Include="Models\Archer.cs" />
     <Compile Include="Models\Base\Cell.cs" />
     <Compile Include="Models\Catapult.cs" />
+    <Compile Include="Models\Dead.cs" />
     <Compile Include="Models\Grass.cs" />
     <Compile Include="Models\Horseman.cs" />
     <Compile Include="Models\Map.cs" />
