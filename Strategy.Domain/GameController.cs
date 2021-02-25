@@ -42,32 +42,32 @@ namespace Strategy.Domain
         {
             if (o is Archer a)
             {
-                return new Coordinates(a.X, a.Y);
+                return a.GetUnitCoordinates();
             }
 
             if (o is Catapult c)
             {
-                return new Coordinates(c.X, c.Y);
+                return c.GetUnitCoordinates();
             }
 
             if (o is Horseman h)
             {
-                return new Coordinates(h.X, h.Y);
+                return h.GetUnitCoordinates();
             }
 
             if (o is Swordsman s)
             {
-                return new Coordinates(s.X, s.Y);
+                return s.GetUnitCoordinates();
             }
 
             if (o is Grass g)
             {
-                return new Coordinates(g.X, g.Y);
+                return g.GetLandscapeCoordinates();
             }
 
             if (o is Water w)
             {
-                return new Coordinates(w.X, w.Y);
+                return w.GetLandscapeCoordinates();
             }
 
             throw new ArgumentException("Неизвестный тип");
@@ -83,31 +83,77 @@ namespace Strategy.Domain
         /// <see langvalue="true" />, если юнит может переместиться
         /// <see langvalue="false" /> - иначе.
         /// </returns>
-        public bool CanMoveUnit(object u, int x, int y)
-        {
-            if (u is Archer a)
-            {
-                if (Math.Abs(a.X - x) > 3 || Math.Abs(a.Y - y) > 3)
-                    return false;
-            }
-            else if (u is Catapult c)
-            {
-                if (Math.Abs(c.X - x) > 1 || Math.Abs(c.Y - y) > 1)
-                    return false;
-            }
-            else if (u is Horseman h)
-            {
-                if (Math.Abs(h.X - x) > 10 || Math.Abs(h.Y - y) > 10)
-                    return false;
-            }
-            else if (u is Swordsman s)
-            {
-                if (Math.Abs(s.X - x) > 5 || Math.Abs(s.Y - y) > 5)
-                    return false;
-            }
-            else
-                throw new ArgumentException("Неизвестный тип");
+        
+        //public bool CanMoveUnit(Archer a, int x, int y)
+        //{
+        //    if (Math.Abs(a.X - x) >  a.MaxSteps|| Math.Abs(a.Y - y) > a.MaxSteps)
+        //        return false;
+            
+        //    foreach (object g in _map.Ground)
+        //    {
+        //        if (g is Water w && w.X == x && w.Y == y)
+        //        {
+        //            return false;
+        //        }
+        //    }
 
+        //    return true;
+        //}
+
+        //public bool CanMoveUnit(Catapult a, int x, int y)
+        //{
+        //    if (Math.Abs(a.X - x) > a.MaxSteps || Math.Abs(a.Y - y) > a.MaxSteps)
+        //        return false;
+
+        //    foreach (object g in _map.Ground)
+        //    {
+        //        if (g is Water w && w.X == x && w.Y == y)
+        //        {
+        //            return false;
+        //        }
+        //    }
+
+        //    return true;
+        //}
+
+        //public bool Horseman(Archer a, int x, int y)
+        //{
+        //    if (Math.Abs(a.X - x) > a.MaxSteps || Math.Abs(a.Y - y) > a.MaxSteps)
+        //        return false;
+            
+        //    foreach (object g in _map.Ground)
+        //    {
+        //        if (g is Water w && w.X == x && w.Y == y)
+        //        {
+        //            return false;
+        //        }
+        //    }
+
+        //    return true;
+        //}
+
+        //public bool CanMoveUnit(Swordsman a, int x, int y)
+        //{
+        //    if (Math.Abs(a.X - x) > a.MaxSteps || Math.Abs(a.Y - y) > a.MaxSteps)
+        //        return false;
+
+        //    foreach (object g in _map.Ground)
+        //    {
+        //        if (g is Water w && w.X == x && w.Y == y)
+        //        {
+        //            return false;
+        //        }
+        //    }
+
+        //    return true;
+        //}
+
+        public bool CanMoveUnit(Unit u, int x, int y)
+        {
+            if (Math.Abs(u.X - x) > u.MaxSteps || Math.Abs(u.Y - y) > u.MaxSteps)
+                return false;
+            else if (!(u is Unit))
+                throw new ArgumentException("Неизвестный тип");
 
             foreach (object g in _map.Ground)
             {
@@ -152,33 +198,20 @@ namespace Strategy.Domain
         /// <param name="u">Юнит.</param>
         /// <param name="x">Координата X клетки.</param>
         /// <param name="y">Координата Y клетки.</param>
-        public void MoveUnit(object u, int x, int y)
-        {   
-            if (!CanMoveUnit(u, x, y))
-                return;
+        public void MoveUnit(Unit u, int x, int y)
+        {
+            try
+            {
+                if (!CanMoveUnit(u, x, y))
+                    return;
 
-            if (u is Archer a)
-            {
-                a.X = x;
-                a.Y = y;
+                u.X = x;
+                u.Y = y;
             }
-            else if (u is Catapult c)
+            catch
             {
-                c.X = x;
-                c.Y = y;
-            }
-            else if (u is Horseman h)
-            {
-                h.X = x;
-                h.Y = y;
-            }
-            else if (u is Swordsman s)
-            {
-                s.X = x;
-                s.Y = y;
-            }
-            else
                 throw new ArgumentException("Неизвестный тип");
+            }
         }
 
         /// <summary>

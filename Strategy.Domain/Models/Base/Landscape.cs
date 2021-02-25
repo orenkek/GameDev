@@ -14,5 +14,7 @@ namespace Strategy.Domain.Models.Base
         }
         public int X { get; set; }
         public int Y { get; set; }
+
+        public Coordinates GetLandscapeCoordinates() => new Coordinates(X, Y);
     }
 }

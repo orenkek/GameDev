@@ -5,12 +5,13 @@
     /// </summary>
     public sealed class Archer : Unit
     {
+        const int MAX_STEPS = 3;
         /// <inheritdoc />
         public Archer(Player player) : base(player)
         {
 
         }
 
-        public override int MaxSteps { get => 3; set => MaxSteps = value; }
+        public override int MaxSteps { get => MAX_STEPS; }
     }
 }

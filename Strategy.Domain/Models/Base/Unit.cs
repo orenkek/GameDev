@@ -19,6 +19,8 @@ namespace Strategy.Domain.Models
 
         public Player Player { get; }
 
-        public abstract int MaxSteps { get; set; }
+        public virtual int MaxSteps { get; set; }
+
+        public Coordinates GetUnitCoordinates() => new Coordinates(X, Y);   
     }
 }

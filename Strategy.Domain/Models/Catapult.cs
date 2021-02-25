@@ -6,12 +6,12 @@
     /// 
     public sealed class Catapult : Unit
     {
+        const int MAX_STEPS = 1;
         public Catapult(Player player) : base(player)
         {
 
         }
 
-        public override int MaxSteps { get => 10; set => MaxSteps = value; }
-
+        public override int MaxSteps { get => MAX_STEPS; }
     }
 }

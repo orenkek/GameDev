@@ -5,12 +5,13 @@
     /// </summary>
     public sealed class Horseman : Unit
     {
+        const int MAX_STEPS = 10;
         /// <inheritdoc />
         public Horseman(Player player) : base(player)
         {
 
         }
 
-        public override int MaxSteps { get => 3; set => MaxSteps = value; }
+        public override int MaxSteps { get => MAX_STEPS; }
     }
 }
