@@ -17,6 +17,6 @@ namespace Strategy.Domain.Models.Base
         public int Y { get; set; }
 
         public Coordinates GetCoordinates() => new Coordinates(X, Y);
-        public virtual ImageSource Image { get; set; }
+        public ImageSource Image { get; set; }
     }
 }
