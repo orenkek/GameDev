@@ -69,8 +69,25 @@ namespace Strategy.Domain
                 }
             }
 
-            foreach (object u1 in _map.Units)
+            //try
+            //{
+            //    foreach (Unit u1 in _map.Units)
+            //    {
+            //        if (u1.X == x && u1.Y == y)
+            //            return false;
+            //    }
+            //}
+            //catch
+            //{
+            //    throw new ArgumentException("Неизвестный тип");
+            //}
+            //return true;
+
+            foreach (Unit u1 in _map.Units)
             {
+                if (u1.X == x && u1.Y == y)
+                    return false;
+
                 if (u1 is Archer a1)
                 {
                     if (a1.X == x && a1.Y == y)
