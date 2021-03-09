@@ -131,6 +131,20 @@ namespace Strategy.Domain
         /// </returns>
         public bool CanAttackUnit(Object attackUnit, Object defenseUnit)
         {
+            //try
+            //{
+            //    var defenseUnitCoor = GetObjectCoordinates((Cell)defenseUnit);
+            //    Player player;
+            //    player = (defenseUnit as Unit).Player;
+            //    if ((IsDead(defenseUnit)))
+            //        return false;
+
+            //}
+            //catch
+            //{
+            //    throw new ArgumentException("Неизвестный тип");
+            //}
+
             var cr = GetObjectCoordinates((Cell)defenseUnit);
             Player ptu;
             try
@@ -310,14 +324,6 @@ namespace Strategy.Domain
             }
             else
                 throw new ArgumentException("Неизвестный тип");
-        }
-
-        /// <summary>
-        /// Получить изображение по указанному пути.
-        /// </summary>
-        private static ImageSource BuildSourceFromPath(string path)
-        {
-            return new BitmapImage(new Uri(path, UriKind.Relative));
         }
     }
 }
