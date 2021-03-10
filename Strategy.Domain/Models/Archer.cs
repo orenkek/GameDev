@@ -11,11 +11,13 @@ namespace Strategy.Domain.Models
         /// <inheritdoc />
         public Archer(Player player) : base(player)
         {
-            _hp = DataSet.InitializeArcherHP();
+            HP = DataSet.InitializeArcherHP();
             Image = DataSet.InitializeArcherImage();
+            AttackRange = DataSet.InitializeAttackRangeOfArcher();
+            DamageValue = DataSet.InitializeArcherDamageValue();
         }
 
-
+        public override bool IsMelee() => false;
         public override int MaxSteps { get => MAX_STEPS; }
     }
 }

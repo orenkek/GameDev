@@ -26,5 +26,23 @@ namespace Strategy.Domain
         public static ImageSource InitializeGrassImage() => new BitmapImage(new Uri("Resources/Units/Grass.png", UriKind.Relative));
         public static ImageSource InitializeWaterImage() => new BitmapImage(new Uri("Resources/Units/Water.png", UriKind.Relative));
         #endregion
+
+        #region Initialize attack range of Units
+
+        public static int InitializeAttackRangeOfArcher() => 5;
+        public static int InitializeAttackRangeOfCatapult() => 10;
+        public static int InitializeAttackRangeOfHorseman() => 1;
+        public static int InitializeAttackRangeOfSwordsman() => 1;
+
+        #endregion
+
+        #region Initialize damage value of units
+
+        public static int InitializeArcherDamageValue() => 50;
+        public static int InitializeCatapultDamageValue() => 100;
+        public static int InitializeHorsemanDamageValue() => 75;
+        public static int InitializeSwordsmanDamageValue() => 50;
+
+        #endregion
     }
 }

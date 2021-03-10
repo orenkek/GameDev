@@ -9,10 +9,13 @@
         /// <inheritdoc />
         public Horseman(Player player) : base(player)
         {
-            _hp = DataSet.InitializeHorsemanHP();
+            HP = DataSet.InitializeHorsemanHP();
             Image = DataSet.InitializeHorsemanImage();
+            AttackRange = DataSet.InitializeAttackRangeOfHorseman();
+            DamageValue = DataSet.InitializeHorsemanDamageValue();
         }
 
+        public override bool IsMelee() => true;
         public override int MaxSteps { get => MAX_STEPS; }
     }
 }
