@@ -45,63 +45,30 @@ namespace Strategy.Domain
 
         public bool CanMoveUnit(Unit unit, int x, int y)
         {
-            if (Math.Abs(unit.X - x) > unit.MaxSteps || Math.Abs(unit.Y - y) > unit.MaxSteps)
-                return false;
-            else if (!(unit is Unit))
+            try
+            {
+                if (Math.Abs(unit.X - x) > unit.MaxSteps || Math.Abs(unit.Y - y) > unit.MaxSteps)
+                    return false;
+
+                foreach (object g in _map.Ground)
+                {
+                    if (g is Water w && w.X == x && w.Y == y)
+                    {
+                        return false;
+                    }
+                }
+
+                foreach (Unit unitFromMap in _map.Units)
+                {
+                    if (unitFromMap.X == x && unitFromMap.Y == y)
+                        return false;
+                }
+                return true;
+            }
+            catch
+            {
                 throw new ArgumentException("Неизвестный тип");
-
-            foreach (object g in _map.Ground)
-            {
-                if (g is Water w && w.X == x && w.Y == y)
-                {
-                    return false;
-                }
             }
-
-            //try
-            //{
-            //    foreach (Unit u1 in _map.Units)
-            //    {
-            //        if (u1.X == x && u1.Y == y)
-            //            return false;
-            //    }
-            //}
-            //catch
-            //{
-            //    throw new ArgumentException("Неизвестный тип");
-            //}
-            //return true;
-
-            foreach (Unit u1 in _map.Units)
-            {
-                if (u1.X == x && u1.Y == y)
-                    return false;
-
-                if (u1 is Archer a1)
-                {
-                    if (a1.X == x && a1.Y == y)
-                        return false;
-                }
-                else if (u1 is Catapult c1)
-                {
-                    if (c1.X == x && c1.Y == y)
-                        return false;
-                }
-                else if (u1 is Horseman h1)
-                {
-                    if (h1.X == x && h1.Y == y)
-                        return false;
-                }
-                else if (u1 is Swordsman s1)
-                {
-                    if (s1.X == x && s1.Y == y)
-                        return false;
-                }
-                else
-                    throw new ArgumentException("Неизвестный тип");
-            }
-
-            return true;
         }
 
         /// <summary>
