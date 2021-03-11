@@ -44,5 +44,14 @@ namespace Strategy.Domain
         public static int InitializeSwordsmanDamageValue() => 50;
 
         #endregion
+
+        #region Initialize max steps of units
+
+        public static int InitializeArcherMaxSteps() => 3;
+        public static int InitializeCatapultMaxSteps() => 1;
+        public static int InitializeHorsemanMaxSteps() => 10;
+        public static int InitializeSwordsmanMaxSteps() => 5;
+
+        #endregion
     }
 }

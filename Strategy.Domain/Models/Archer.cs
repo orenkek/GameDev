@@ -7,7 +7,6 @@ namespace Strategy.Domain.Models
     /// </summary>
     public sealed class Archer : Unit
     {
-        const int MAX_STEPS = 3;
         /// <inheritdoc />
         public Archer(Player player) : base(player)
         {
@@ -15,9 +14,9 @@ namespace Strategy.Domain.Models
             Image = DataSet.InitializeArcherImage();
             AttackRange = DataSet.InitializeAttackRangeOfArcher();
             DamageValue = DataSet.InitializeArcherDamageValue();
+            MaxSteps = DataSet.InitializeArcherMaxSteps();
         }
 
         public override bool IsMelee() => false;
-        public override int MaxSteps { get => MAX_STEPS; }
     }
 }

@@ -17,12 +17,12 @@ namespace Strategy.Domain.Models
         }
 
         public Player Player { get; }
-        public virtual int MaxSteps { get; set; }
         public int HP { get; set; }
         public int AttackRange { get; set; }
         public int DamageValue { get; set; }
-        public virtual bool IsMelee() => true;
+        public int MaxSteps { get; set; }
 
+        public virtual bool IsMelee() => true;
         public bool IsDead() => HP == 0;
     }
 }
