@@ -5,14 +5,16 @@
     /// </summary>
     public sealed class Horseman : Unit
     {
-        const int MAX_STEPS = 10;
         /// <inheritdoc />
         public Horseman(Player player) : base(player)
         {
-            _hp = DataSet.InitializeHorsemanHP();
+            HP = DataSet.InitializeHorsemanHP();
             Image = DataSet.InitializeHorsemanImage();
+            AttackRange = DataSet.InitializeAttackRangeOfHorseman();
+            DamageValue = DataSet.InitializeHorsemanDamageValue();
+            MaxSteps = DataSet.InitializeHorsemanMaxSteps();
         }
 
-        public override int MaxSteps { get => MAX_STEPS; }
+        public override bool IsMelee() => true;
     }
 }
